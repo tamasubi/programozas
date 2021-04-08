@@ -54,6 +54,13 @@ tamas.getName()
 # User.signout('test@test.com')
 
 
+# NEM EZ:
+# tamas.register()
+# HANEM EZ:
+# User.register()
+
+
+
 
 # def create():
 
