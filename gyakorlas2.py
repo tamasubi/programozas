@@ -45,10 +45,11 @@ class User():
 
 tamas = User("example@examle.com", "Lajos", True, '1234')
 print(str(tamas))
+tamas.getName()
 
 
-# majd ezt akarjuk
-# User.register('test@test.com', '12345')
+# majd ezt akarjuk, CLASS METHODS!
+# User.register('test@test.com', '12345'), EZT CSINLAD MEG!
 # User.login('test@test.com', '12345')
 # User.signout('test@test.com')
 
