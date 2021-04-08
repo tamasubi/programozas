@@ -43,8 +43,14 @@ class User():
 #        return self.password
 
 
-Tamas = User("example@examle.com", "Lajos", True, '1234')
-print(str(Tamas))
+tamas = User("example@examle.com", "Lajos", True, '1234')
+print(str(tamas))
+
+
+# majd ezt akarjuk
+# User.register('test@test.com', '12345')
+# User.login('test@test.com', '12345')
+# User.signout('test@test.com')
 
 
 
