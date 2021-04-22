@@ -10,8 +10,7 @@ class User():
         self.signincount = 0
 
     def __str__(self):
-  #      return f"The user's email is {self.email} the name is {self.name} the number of sign in is {self.signincount} and is a {self.premium} user."
-        return '1'
+        return "The users email is {} the name is {} the number of sign in is {} and is a {} user.".format(self.email,self.name,self.signincount,self.premium)
 
     def setEmail(self, email):
         self.email = email
@@ -47,8 +46,8 @@ class User():
 
 
     @classmethod
-    def register(cls, name, email, password):
-        user = cls(email, name, password)
+    def register(cls, email, name, premium, password):
+        user = cls(email, name, premium, password)
         users.append(user)
 
 
@@ -67,9 +66,13 @@ tamas.getName()
 
 #registering user
 
-User.register("geza", "emailmarhajo", "25")
+User.register("emailmarhajo", "geza", True, "25")
+User.register("test@test.com", "testname", False, "32")
 
 print(users)
+
+print(users[0])
+
 
 
 
