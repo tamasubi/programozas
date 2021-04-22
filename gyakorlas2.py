@@ -1,3 +1,6 @@
+#ebban taroljuk a usereket
+users = []
+
 class User():
     def __init__(self, email, name, premium, password):
         self.email = email
@@ -45,9 +48,8 @@ class User():
 
     @classmethod
     def register(cls, name, email, password):
-        print(name)
-        print(email)
-        print(password)
+        user = cls(email, name, password)
+        users.append(user)
 
 
 
@@ -56,14 +58,21 @@ class User():
 
 
 
-
-
+#create a user instance
 tamas = User("example@examle.com", "Lajos", True, '1234')
 print(str(tamas))
 tamas.getName()
 
 
+
+#registering user
+
 User.register("geza", "emailmarhajo", "25")
+
+print(users)
+
+
+
 
 
 # User.register('test@test.com', '12345'), EZT CSINLAD MEG!
