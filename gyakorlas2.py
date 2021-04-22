@@ -48,49 +48,10 @@ print(str(tamas))
 tamas.getName()
 
 
-# majd ezt akarjuk, CLASS METHODS!
+
 # User.register('test@test.com', '12345'), EZT CSINLAD MEG!
 # User.login('test@test.com', '12345')
 # User.signout('test@test.com')
 
-
-# NEM EZ:
-# tamas.register()
-# HANEM EZ:
-# User.register()
-
-
-
-
-# def create():
-
-#     password = input("enter password")
-#     signincount = 0
-#     premium = False
-
-
-
-#     count = 0
-#     while True:
-#         email = input("enter email: ")
-#         nev = input("enter nev: ")
-#         count += 1
-#         if count == 3:
-
-#             break
-#         else:
-#             if nev == 'elmo' and password == 'blue':
-
-#                 break
-#             else:
-#                 print("menja rakba")
-#                 # tell them it is wrong and have them retry, stay in loop
-#     return user(email, nev, signincount, premium, password)
-
-# Tom = create()
-
-# print(Tom.__str__())
-
-
-# Tom.setEmail("java@gmail.com")
-# print("the new email is", Tom.getEmail())
+# user.delete!
+ 
