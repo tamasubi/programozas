@@ -43,10 +43,27 @@ class User():
 #        return self.password
 
 
+    @classmethod
+    def register(cls, name, email, password):
+        print(name)
+        print(email)
+        print(password)
+
+
+
+
+
+
+
+
+
+
 tamas = User("example@examle.com", "Lajos", True, '1234')
 print(str(tamas))
 tamas.getName()
 
+
+User.register("geza", "emailmarhajo", "25")
 
 
 # User.register('test@test.com', '12345'), EZT CSINLAD MEG!
@@ -55,3 +72,4 @@ tamas.getName()
 
 # user.delete!
  
+
