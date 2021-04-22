@@ -50,8 +50,17 @@ class User():
         user = cls(email, name, premium, password)
         users.append(user)
 
+    @classmethod
+    def findByEmail(cls, email):
+        for user in users:
+            if user.getEmail() == email:
+                return user
+    
+        return "user {} not found".format(email)
 
-
+    @classmethod
+    def findAll(cls):
+        return users
 
 
 
@@ -73,8 +82,19 @@ print(users)
 
 print(users[0])
 
+print(users[0].getEmail())
 
 
+
+#FINGING A USER IN THE USER'S ARRAY
+
+print(User.findByEmail("test@test.com"))
+print(User.findByEmail("kamu@yes.rus"))
+
+
+#FIND ALL USER
+
+print(User.findAll())
 
 
 
