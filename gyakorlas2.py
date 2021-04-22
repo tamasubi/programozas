@@ -97,11 +97,12 @@ print(User.findByEmail("kamu@yes.rus"))
 print(User.findAll())
 
 
-
-# User.register('test@test.com', '12345'), EZT CSINLAD MEG!
 # User.login('test@test.com', '12345')
-# User.signout('test@test.com')
+#   - keressuk ki a usert a megadott email apajan
+#   - helyes e a jelszava a usernek (isPasswordValid() fuggveny)
+#   - ha helyes, visszaadja a usert
+#   - ha nem hibauzenet
 
-# user.delete!
- 
+# user.delete()
+#  - az adott user tunjon el az adatbazisbol
 
