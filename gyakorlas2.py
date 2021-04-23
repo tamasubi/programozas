@@ -64,6 +64,15 @@ class User():
 
 
 
+    @classmethod
+    def login(cls, email, password):
+        for user in users:
+            if user.getEmail() == email and user.setPassword == password:
+                return user
+            
+        print("user not found")
+
+    
 
 
 #create a user instance
@@ -106,3 +115,6 @@ print(User.findAll())
 # user.delete()
 #  - az adott user tunjon el az adatbazisbol
 
+
+#User login
+User.login("test@test.com", "12345")
