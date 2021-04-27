@@ -68,9 +68,9 @@ class User():
     def login(cls, email, password):
         for user in users:
             if user.getEmail() == email and user.setPassword == password:
-                return user
+                return "user name is {}".format(name)
             
-        print("user not found")
+        return "user {} not found".format(email)
 
     
 
@@ -87,11 +87,11 @@ tamas.getName()
 User.register("emailmarhajo", "geza", True, "25")
 User.register("test@test.com", "testname", False, "32")
 
-print(users)
+print("90",users)
 
-print(users[0])
+print("92",users[0])
 
-print(users[0].getEmail())
+print("94",users[0].getEmail())
 
 
 
@@ -117,4 +117,4 @@ print(User.findAll())
 
 
 #User login
-User.login("test@test.com", "12345")
+User.login("emailmarhajo", "20")
