@@ -42,8 +42,8 @@ class User():
 
     
 #nem akarjuk hogy barki lassa
-#    def getPassword(self):
-#        return self.password
+    def getPassword(self):
+        return self.password
 
 
     @classmethod
@@ -65,8 +65,9 @@ class User():
     
     @classmethod
     def login(cls, email, password):
+        return cls.findByEmail(email)
         for user in users:
-            if user.email() == email and user.setPassword() == password:
+            if user.getPassword() == password:
                 return user
         return "user email or password is not correct"
 
@@ -122,8 +123,10 @@ print(User.findAll())
 
 
 #User login
-print(User.login("emailmarhajo", "25"))
+print("125", User.login("emailmarhajo", "25"))
 
 #User delete
+User.userDelete("emailmarhajo")
 User.userDelete("test@test.com")
+
 print(User.findAll())
