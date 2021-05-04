@@ -71,13 +71,14 @@ class User():
             
         return "user {} password not found".format(password)
 
-   # @classmethod
-   # def login(cls, email, password):
-   #     return cls.findByEmail(email)
-   #     for user in users:
-   #         if user.getPassword() == password:
-   #             return user
-   #     return "user email or password is not correct"
+    @classmethod
+    def login(cls, email, password):
+        return cls.findByEmail(email)
+        return cls.isPasswordValid(password)
+        for user in users:
+            if (user.findByEmail == email) and (user.isPasswordValid == password):
+                return user
+        return "user email or password is not correct"
 
     @classmethod
     def userDelete(cls, email):
@@ -136,10 +137,11 @@ print(User.isPasswordValid("25"))
 
 
 #User login
-#User.login("emailmarhajo", "25"))
+print("login", User.login( "test@tes.com","25"))
 
 #User delete
 User.userDelete("emailmarhajo")
 User.userDelete("test@test.com")
 
 
+print(User.findAll())
