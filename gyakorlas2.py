@@ -55,7 +55,7 @@ class User():
     def findByEmail(cls, email):
         for user in users:
             if user.getEmail() == email:
-                return user
+                return "we found user {}".format(email)
     
         return "user {} not found".format(email)
 
@@ -66,20 +66,18 @@ class User():
     @classmethod
     def isPasswordValid(cls, password):
         for user in users:
-            if user.getPassword() == password:
-                return "the password {} exists".format(password)
-            
+            if user.getPassword() == password: 
+                return "the password {} is valid".format(password)
         return "user {} password not found".format(password)
 
     @classmethod
     def login(cls, email, password):
-        return cls.findByEmail(email)
-        return cls.isPasswordValid(password)
         for user in users:
-            if (user.findByEmail == email) and (user.isPasswordValid == password):
-                return user
-        return "user email or password is not correct"
-
+            if user.getEmail == email and user.getPassword == password:
+                return cls.findByEmail(email)
+                return cls.isPasswordValid(password)
+        return "email or password not valid"
+        
     @classmethod
     def userDelete(cls, email):
         for user in users:
@@ -112,7 +110,7 @@ print("94",users[0].getEmail())
 
 #FINGING A USER IN THE USER'S ARRAY
 
-print(User.findByEmail("test@test.com"))
+print("find",User.findByEmail("test@test.com"))
 print(User.findByEmail("kamu@yes.rus"))
 
 
@@ -131,13 +129,13 @@ print(User.findAll())
 #  - az adott user tunjon el az adatbazisbol
 
 #isPasswordValid
-print(User.isPasswordValid("25"))
+print(User.isPasswordValid("2"))
 
 
 
 
 #User login
-print("login", User.login( "test@tes.com","25"))
+print("login", User.login( "test@test.com", "32"))
 
 #User delete
 User.userDelete("emailmarhajo")
@@ -145,3 +143,4 @@ User.userDelete("test@test.com")
 
 
 print(User.findAll())
+
