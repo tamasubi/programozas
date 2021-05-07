@@ -25,8 +25,8 @@ class User():
         return self.name
 
 #nem szetteljuk, mert belulrol allitja magat
-#   def setSignInCount(self, signincount):
-#        self.signincount = signincount
+    def setSignInCount(self, signincount):
+        self.signincount = signincount
 
     def getSignInCount(self):
         return self.signincount
@@ -48,6 +48,11 @@ class User():
     def delete(self):
         users.remove(user)
                 
+    def isPasswordValid(self, password):
+        if self.getPassword() == password: 
+            return True
+        else:
+            return False
 
     @classmethod
     def register(cls, email, name, premium, password):
@@ -59,33 +64,34 @@ class User():
         for user in users:
             if user.getEmail() == email:
                 return user
-    
-        return "user {} not found".format(email)
+        return None
 
     @classmethod
     def findAll(cls):
         return users
     
-    @classmethod
-    def isPasswordValid(cls, password):
-        for user in users:
-            if user.getPassword() == password: 
-                return "the password {} is valid".format(password)
-        return "user {} password not found".format(password)
 
     @classmethod
     def login(cls, email, password):
-        for user in users:
-            if user.getEmail == email and user.getPassword == password:
-                return cls.findByEmail(email)
-                return cls.isPasswordValid(password)
-        return "email or password not valid"
+        user = cls.findByEmail(email)
+
+        if user is None:
+            print("email or password not valid")
+            return None
         
+        if user.isPasswordValid(password):
+            incrementedSignInCount = user.getSignInCount() + 1
+            user.setSignInCount(inceremtedSignInCount)
+
+            print("Welcome {}".format(email))
+            return user
+        else:
+            print("email or password not valid")
+                   
+
+
 
         
-
-
-
 #create a user instance
 tamas = User("example@examle.com", "Lajos", True, '1234')
 print(str(tamas))
@@ -93,16 +99,13 @@ tamas.getName()
 
 
 
-#registering user
 
-User.register("emailmarhajo", "geza", True, "25")
-User.register("test@test.com", "testname", False, "32")
 
-print("90",users)
+#rint("90",users)
 
-print("92",users[0])
+#print("92",users[0])
 
-print("94",users[0].getEmail())
+#print("94",users[0].getEmail())
 
 
 
@@ -126,8 +129,7 @@ print(User.findAll())
 # user.delete()
 #  - az adott user tunjon el az adatbazisbol
 
-#isPasswordValid
-print(User.isPasswordValid("2"))
+
 
 
 
@@ -135,12 +137,21 @@ print(User.isPasswordValid("2"))
 #User login
 print("login", User.login( "test@test.com", "32"))
 
-#User delete
 
 
+#registering user
+
+User.register("emailmarhajo", "geza", True, "25")
+User.register("test@test.com", "testname", False, "32")
 
 user = User.findByEmail("test@test.com")
 
+#isPasswordValid
+print(user.isPasswordValid("2"))
+print(user.isPasswordValid("32"))
+
+
+#User delete
 user.delete()
 
 print(User.findAll())
