@@ -91,68 +91,33 @@ class User():
 
 
 
+
+
         
-#create a user instance
+# User instance
 tamas = User("example@examle.com", "Lajos", True, '1234')
+
+# User instance string representation
 print(str(tamas))
+
+# User instance getter
 tamas.getName()
 
 
-
-
-
-#rint("90",users)
-
-#print("92",users[0])
-
-#print("94",users[0].getEmail())
-
-
-
-#FINGING A USER IN THE USER'S ARRAY
-
-print("find",User.findByEmail("test@test.com"))
-print(User.findByEmail("kamu@yes.rus"))
-
-
-#FIND ALL USER
-
-print(User.findAll())
-
-
-# User.login('test@test.com', '12345')
-#   - keressuk ki a usert a megadott email apajan
-#   - helyes e a jelszava a usernek (isPasswordValid() fuggveny)
-#   - ha helyes, visszaadja a usert
-#   - ha nem hibauzenet
-
-# user.delete()
-#  - az adott user tunjon el az adatbazisbol
-
-
-
-
-
-
-#User login
-print("login", User.login( "test@test.com", "32"))
-
-
-
-#registering user
-
-User.register("emailmarhajo", "geza", True, "25")
+# User methods
+User.register("emailmarhajo@example.com", "geza", True, "25")
 User.register("test@test.com", "testname", False, "32")
 
-user = User.findByEmail("test@test.com")
+allUsers = User.findAll()
+print(allUsers)
 
-#isPasswordValid
-print(user.isPasswordValid("2"))
-print(user.isPasswordValid("32"))
+# User successfully found (user instance)
+User.findByEmail("emailmarhajo@example.com")
 
+# User was not found found (None)
+User.findByEmail("nincsilyenemail@example.com")
 
-#User delete
+user = User.login('emailmarhajo@example.com', "25")
+user.isPasswordValid("123")
 user.delete()
-
-print(User.findAll())
-
+print(allUsers)
