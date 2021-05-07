@@ -45,6 +45,9 @@ class User():
     def getPassword(self):
         return self.password
 
+    def delete(self):
+        users.remove(user)
+                
 
     @classmethod
     def register(cls, email, name, premium, password):
@@ -55,7 +58,7 @@ class User():
     def findByEmail(cls, email):
         for user in users:
             if user.getEmail() == email:
-                return "we found user {}".format(email)
+                return user
     
         return "user {} not found".format(email)
 
@@ -78,12 +81,7 @@ class User():
                 return cls.isPasswordValid(password)
         return "email or password not valid"
         
-    @classmethod
-    def userDelete(cls, email):
-        for user in users:
-            if user.getEmail() == email:
-                users.remove(user)
-                
+
         
 
 
@@ -138,9 +136,12 @@ print(User.isPasswordValid("2"))
 print("login", User.login( "test@test.com", "32"))
 
 #User delete
-User.userDelete("emailmarhajo")
-User.userDelete("test@test.com")
 
+
+
+user = User.findByEmail("test@test.com")
+
+user.delete()
 
 print(User.findAll())
 
