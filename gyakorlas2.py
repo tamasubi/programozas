@@ -42,14 +42,14 @@ class User():
 
     
 #nem akarjuk hogy barki lassa
-    def getPassword(self):
+    def __getPassword(self):
         return self.password
 
     def delete(self):
         users.remove(user)
                 
     def isPasswordValid(self, password):
-        if self.getPassword() == password: 
+        if self.__getPassword() == password: 
             return True
         else:
             return False
@@ -81,7 +81,7 @@ class User():
         
         if user.isPasswordValid(password):
             incrementedSignInCount = user.getSignInCount() + 1
-            user.setSignInCount(inceremtedSignInCount)
+            user.setSignInCount(incrementedSignInCount)
 
             print("Welcome {}".format(email))
             return user
@@ -89,7 +89,7 @@ class User():
             print("email or password not valid")
                    
 
-
+                   
 
 
 
@@ -112,12 +112,25 @@ allUsers = User.findAll()
 print(allUsers)
 
 # User successfully found (user instance)
-User.findByEmail("emailmarhajo@example.com")
+User.findByEmail("mailmarhajo@example.com")
 
 # User was not found found (None)
 User.findByEmail("nincsilyenemail@example.com")
 
 user = User.login('emailmarhajo@example.com', "25")
 user.isPasswordValid("123")
+#user.__getPassword()
 user.delete()
+
 print(allUsers)
+
+
+class Admin(User):
+    def changeSomebodysPassword(self, user):
+        print(user)
+
+
+
+Admin.register("test@test.com", "testname", False, "32")
+
+print(Admin.findByEmail("test@test.com"))
