@@ -1,4 +1,4 @@
-users = []
+$users = []
 
 class User
     attr_accessor :email, :name, :premium
@@ -17,11 +17,27 @@ class User
         "The users email is #{@email} the name is #{@name} the number of sign in is #{@premium} and is a #{@password} user."
     end
 
+    def delete
+        $users - [self]
+    end
 
+    def password_valid?(password)
+        @password == password
+    end
+
+    class << self
+        def register(email, name, premium, password)
+            user = new(email, name, premium, password)
+            $users << user
+        end
+    end
 end
 
 # objektum letrehozasa
 tamas = User.new('example@examle.com', "Lajos", true, '1234')
+
+#objektum string formaban a to_s miatt
+puts tamas
 
 # email kilvasasa a meglevo objektumbol, es email beleirasa az objektumba
 puts tamas.email
@@ -39,6 +55,15 @@ tamas.password = 'new pssword'
 # ez hibat fog dobni, mert nem olvashato
 # tamas.password
 
+#user registration
+User.register('emailmarhajo@example.com', 'geza', true, '25')
+
+# users tomb kiirasa, ahova beleregisztratuk az uj usert
+puts $users
 
 
-puts tamas
+tamas.delete
+
+puts $users
+
+puts tamas.password_valid?('new pssword')
